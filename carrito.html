@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito | MUVI Collection</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/carrito.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="brand"><img src="assets/logo.jpeg" alt="MUVI Collection"></a>
+    <nav class="navigation">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="personalizador.html">Personaliza</a>
+      <a href="index.html#nosotros">Nosotros</a>
+    </nav>
+    <div class="header-actions">
+      <a href="carrito.html" class="cart-button"><i class="fa-solid fa-bag-shopping"></i><span id="cartCount">0</span></a>
+    </div>
+  </div>
+</header>
+
+<main class="cart-page">
+  <span class="eyebrow">MUVI COLLECTION</span>
+  <h1>Tu pedido</h1>
+
+  <div id="cartLayout" class="cart-layout">
+    <div id="items"></div>
+    <aside class="summary" id="summary">
+      <h3>Resumen</h3>
+      <div class="sum-row"><span>Productos</span><strong id="sumCount">0</strong></div>
+      <div class="sum-row total"><span>Total estimado</span><strong id="sumTotal">$0</strong></div>
+      <label class="notes">Nota para MUVI (talla, cantidad, fecha)
+        <textarea id="notes" rows="3" placeholder="Ej: 2 camisetas talla M, para el 25 de diciembre"></textarea>
+      </label>
+      <button id="sendWa" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Enviar pedido por WhatsApp</button>
+      <small>Confirmamos precio final y revisamos tu diseño antes de sublimar.</small>
+    </aside>
+  </div>
+
+  <div id="emptyCart" class="empty-cart" style="display:none">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <h2>Tu carrito está vacío</h2>
+    <p>Comienza creando un producto personalizado.</p>
+    <a href="personalizador.html" class="btn btn-primary">Crear mi producto <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/carrito.js"></script>
+</body>
+</html>

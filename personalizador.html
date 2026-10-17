@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personalizador | MUVI Collection</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/personalizador.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Pacifico&family=Bebas+Neue&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="designer-page">
+<header class="header"><div class="header-inner">
+  <a href="index.html" class="brand"><img src="assets/logo.jpeg" alt="MUVI Collection"></a>
+  <nav class="navigation"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="personalizador.html" class="active">Personaliza</a><a href="index.html#nosotros">Nosotros</a></nav>
+  <div class="header-actions"><a href="carrito.html" class="cart-button"><i class="fa-solid fa-bag-shopping"></i><span id="cartCount">0</span></a></div>
+</div></header>
+
+<main>
+<section class="designer-title">
+  <span class="eyebrow">MUVI DESIGN STUDIO</span>
+  <h1>Crea tu producto</h1>
+  <p>Diseña para ti o para tu empresa: sube tu logo, recórtalo, ubícalo y míralo antes de pedirlo.</p>
+</section>
+
+<section class="studio">
+<aside class="studio-panel">
+  <div class="step"><h3>01 — Producto</h3><div class="product-options" id="productOptions"></div></div>
+
+  <div class="step"><h3>02 — Color: <b id="colorName"></b></h3>
+    <div class="swatches" id="swatches"></div>
+    <p class="warn" id="warn"><i class="fa-solid fa-circle-info"></i> En colores oscuros la sublimación pierde intensidad. Escríbenos y te sugerimos la mejor técnica.</p></div>
+
+  <div class="step"><h3>03 — Talla y cantidad</h3>
+    <div class="chips" id="tallas"></div>
+    <div class="qty-row"><button id="qMinus">−</button><b id="qty">1</b><button id="qPlus">+</button><small>unidades</small></div></div>
+
+  <div class="step"><h3>04 — ¿Dónde va el diseño?</h3>
+    <div class="chips" id="viewRow" style="display:none"><button class="chip" data-v="f">Frente</button><button class="chip" data-v="b">Espalda</button></div>
+    <div class="chips" id="zones"></div>
+    <small class="tip">Dotación: elige “Pecho izquierdo” para el logo de la empresa.</small></div>
+
+  <div class="step"><h3>05 — Sube tu logo o diseño</h3>
+    <label class="upload" id="dropzone"><input type="file" id="imageUpload" accept="image/png,image/jpeg,image/webp" multiple>
+      <i class="fa-solid fa-cloud-arrow-up"></i><strong>Selecciona o arrastra imágenes</strong><small>PNG sin fondo es lo ideal · JPG · WEBP</small></label>
+    <div class="txt-row"><input id="txtIn" placeholder="Escribe un texto o nombre" maxlength="40">
+      <select id="txtFont"><option>Montserrat</option><option>Playfair Display</option><option>Pacifico</option><option>Bebas Neue</option><option>Dancing Script</option></select>
+      <input type="color" id="txtCol" value="#6b2c91"><button id="addTxt" class="chip">+ Texto</button></div></div>
+
+  <div class="step"><h3>06 — Capas y ajustes</h3>
+    <div class="chips" id="layers"></div>
+    <div id="adjust" class="off">
+      <div class="range-group"><label>Tamaño <span id="scaleValue">100%</span></label><input type="range" id="scale" min="5" max="300" value="100"></div>
+      <div class="range-group"><label>Rotación <span id="rotationValue">0°</span></label><input type="range" id="rotation" min="-180" max="180" value="0"></div>
+      <div id="cropBox"><h4>Recortar imagen</h4>
+        <div class="crop-grid">
+          <label>Izquierda<input type="range" id="cl" min="0" max="80" value="0"></label>
+          <label>Derecha<input type="range" id="cr" min="0" max="80" value="0"></label>
+          <label>Arriba<input type="range" id="ct" min="0" max="80" value="0"></label>
+          <label>Abajo<input type="range" id="cb" min="0" max="80" value="0"></label></div>
+        <label class="check"><input type="checkbox" id="roundChk"> Recorte redondo</label></div>
+      <div class="tool-row">
+        <button id="fitBtn"><i class="fa-solid fa-expand"></i> Ajustar</button>
+        <button id="centerBtn"><i class="fa-solid fa-crosshairs"></i> Centrar</button>
+        <button id="flipBtn"><i class="fa-solid fa-arrows-left-right"></i> Espejo</button>
+        <button id="removeDesign"><i class="fa-solid fa-trash"></i> Quitar capa</button></div>
+    </div>
+    <div class="range-group" id="wrapRow" style="display:none"><label>Girar la taza <span id="offValue">0°</span></label><input type="range" id="mugAngle" min="-180" max="180" value="0"></div>
+  </div>
+</aside>
+
+<section class="stage">
+  <div class="stage-head"><span id="productName">Camiseta</span>
+    <div><button id="view3d" class="reset-button"><i class="fa-solid fa-cube"></i> Vista 3D</button>
+    <button id="resetButton" class="reset-button"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button></div></div>
+  <div class="canvas-wrap" id="canvasWrap"><canvas id="canvas" width="700" height="700"></canvas>
+    <p class="hint" id="hint"><i class="fa-regular fa-hand-pointer"></i> Arrastra para mover la capa activa</p></div>
+  <div class="stage-foot">
+    <div class="price-box"><small>Precio por unidad desde</small><strong id="price">$35.000</strong></div>
+    <button id="downloadBtn" class="btn btn-secondary"><i class="fa-solid fa-download"></i> Descargar vista</button>
+    <button id="addCart" class="btn btn-primary">Agregar al carrito <i class="fa-solid fa-bag-shopping"></i></button></div>
+  <p class="note">La vista previa es una simulación. Revisamos tu archivo y confirmamos el precio final antes de sublimar.</p>
+</section>
+</section>
+</main>
+<div class="modal3d" id="modal3d"><div class="m3-box"><button class="m3-x" id="close3d" aria-label="Cerrar">&times;</button>
+  <div class="m3-view" id="m3view"></div>
+  <p class="m3-hint"><i class="fa-solid fa-hand"></i> Arrastra para girar · rueda para acercar</p>
+  <div class="m3-tools"><button id="m3auto" class="chip">Giro automático</button><button id="m3reset" class="chip">Restablecer</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script src="js/app.js"></script>
+<script src="js/vista3d.js"></script>
+<script src="js/personalizador.js"></script>
+</body>
+</html>
